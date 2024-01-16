@@ -33,7 +33,6 @@ class RandomColor(QWidget):
         self.ui.copyRGB.clicked.connect(self.copy_rgb)
         self.ui.copyHEX.clicked.connect(self.copy_hex)
 
-
     def generate_rgb_color(self):
         self.ui.rgbColor.setText("")
         self.ui.hexColor.setText("")
@@ -45,16 +44,12 @@ class RandomColor(QWidget):
         b = random.randint(0, 255)
 
         self.ui.colorViewer.setStyleSheet(f"background-color:rgb({r},{g},{b})")
-
-
         self.ui.rgbColor.setText(f"rgb({r}, {g}, {b})")
         self.ui.hexColor.setText(self.rgb_to_hex(r,g,b))
 
-
     def rgb_to_hex(self, r, g, b):
         return '#{:02x}{:02x}{:02x}'.format(r, g, b)
-
-
+        
     def copy_rgb(self, mod):
         self.ui.rgbLabel_2.setText("Copied!")
         cb = QApplication.clipboard()
@@ -70,7 +65,6 @@ class RandomColor(QWidget):
     def clear_cb_label(self):
         self.ui.rgbLabel_2.setText("")
         self.ui.hexLabel_2.setText("")
-
 
 if __name__ == "__main__":
     app = QApplication(sys.argv)
